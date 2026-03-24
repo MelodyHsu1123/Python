@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+<title>BMI值計算器</title>
+<script language="javascript">
+function sayBMI() {
+    // 1. 取得輸入值
+    let yourHeight = document.form1.Height.value; 
+    let yourWeight = document.form1.Weight.value;
+    
+    // 修正：抓取下拉選單 Sex 的值
+    let yourSex = document.form1.Sex.value; 
+
+    if (yourHeight > 0 && yourWeight > 0) {
+        // --- 計算 BMI ---
+        let yourBMI = yourWeight / (yourHeight ** 2);
+        document.form1.BMI.value = yourBMI.toFixed(2);
+
+        // --- 診斷結果 (會填入 name="result" 的框) ---
+        if (yourBMI < 18.5) {
+            document.form1.result.value = "你太輕了！多吃點！";
+        } else if (yourBMI < 24) {
+            document.form1.result.value = "不錯喔！";
+        } else {
+            document.form1.result.value = "你太重了！多運動！";
+        }
+
+        // --- 計算理想體重 ---
+        let yourstdWeight = 0;
+        if (yourSex == "男") {
+            yourstdWeight = (yourHeight * 100 - 80) * 0.7;
+        } else {
+            yourstdWeight = (yourHeight * 100 - 70) * 0.6;
+        }
+
+        // --- 顯示理想體重範圍 (會填入 name="standardweight" 的框) ---
+        let minWeight = (yourstdWeight * 0.9).toFixed(1);
+        let maxWeight = (yourstdWeight * 1.1).toFixed(1);
+        document.form1.standardweight.value = minWeight + " - " + maxWeight;
+
+        alert("計算完成！");
+    } else {
+        alert("請輸入正確的身高與體重！");
+    }
+}
+</script>
+</head>	
+<body>
+<p>BMI計算器 </p>
+<form id="form1" name="form1" method="post">
+  <p><strong>輸入身高 </strong>:
+    <input type="text" name="Height" id="textfield"> <strong>公尺</strong> 
+    <strong>性別</strong>:
+    <select name="Sex" id="select">
+      <option value="男">男生</option>
+      <option value="女">女生</option>
+    </select>
+  </p>
+
+  <p><strong>輸入體重</strong>:
+    <input type="text" name="Weight" id="textfield2"> <strong>公斤</strong>
+  </p>
+
+  <p>
+    <input type="button" name="button" id="button" value="計算BMI" onClick="sayBMI()">
+  </p>    
+
+  <p><strong>你的BMI是</strong>:
+    <input type="text" name="BMI" id="textfield3">
+  </p>
+
+  <p><strong>診斷結果</strong>:
+    <input type="text" name="result" id="textfield5">
+  </p>
+
+  <p><strong>你的理想體重範圍</strong>:
+    <input type="text" name="standardweight" id="textfield4">
+  </p>
+</form>
