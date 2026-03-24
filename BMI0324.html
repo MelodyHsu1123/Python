@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>BMI值計算器</title>
+<script language="javascript">
+	function sayBMI(){
+		alert("要計算BMI");
+		let yourHeight = form1.height.value;
+		let yourWeight = form1.weight.value;
+		let yourBMI = yourWeight / (yourHeight**2);
+		let yourSex = form1.sex.value;
+		let yourstdWeight = 0;
+		
+		alert(yourBMI);
+		form1.bmi.value = yourBMI;
+		if(yourBMI < 18.5){
+			form1.result.value = "你太輕了!多吃一點!";
+		}else if(yourBMI < 24){
+			form1.result.value = "不錯喔!繼續保持!";
+		}else{
+			form1.result.value = "你太重了!多運動!";
+		}
+		alert(yourSex);
+	if(yourSex == "男"){
+		yourstdWeight = (yourHeight*100-80)*0.7;
+		alert(yourstdWeight);
+	}else{
+		yourstdWeight = (yourHeight*100-70)*0.6;
+		alert(yourstdWeight);
+	}
+	
+	form1.standweight.value = yourstdWeight*0.9 + "~" + yourstdWeight*1.1;
+	}
+
+	
+</script>
+</head>
+
+<body>
+<p>BMI計算器
+</p>
+<form id="form1" name="form1" method="post">
+  <p>
+    <label for="textfield">輸入身高:</label>
+    <input type="text" name="height" id="textfield">
+    公尺
+  </p>
+  <p>
+    <label for="textfield2">輸入體重:</label>
+    <input type="text" name="weight" id="textfield2">
+公斤</p>
+  <p>
+    <label for="select">生理性別:</label>
+    <select name="sex" id="select">
+      <option value="男" selected="selected">男生</option>
+      <option value="女">女生</option>
+    </select>
+  </p>
+  <p>
+    <input type="button" name="button" id="button" value="計算BMI" onClick="sayBMI()">
+  </p>
+  <p>
+    <label for="textfield3">你的BMI是:</label>
+    <input type="text" name="bmi" id="textfield3">
+  </p>
+  <p>
+    <label for="textfield4">診斷結果:</label>
+    <input type="text" name="result" id="textfield4">
+  </p>
+  <p>
+    <label for="textfield5">你的理想體重範圍:</label>
+    <input type="text" name="standweight" id="textfield5">
+  </p>
+</form>
+<p>&nbsp;</p>
+</body>
+</html>
