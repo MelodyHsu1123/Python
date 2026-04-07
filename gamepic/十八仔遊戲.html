@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>無標題文件</title>
+<script language="javascript">	
+	function play(){
+		let no1 = Math.floor(Math.random()*6+1);
+		let no2 = Math.floor(Math.random()*6+1);
+		let no3 = Math.floor(Math.random()*6+1);
+		let no4 = Math.floor(Math.random()*6+1);
+		//alert(no1);
+		document.pic1.src = no1 +".jpg";
+		document.pic2.src = no2 +".jpg";
+		document.pic3.src = no3 +".jpg";
+		document.pic4.src = no4 +".jpg";
+		form1.total.value = no1 + no2 + no3 + no4;
+		if(no1 === no2 && no2 === no3 && no3=== no4){
+			alert("中了!");
+		}
+	}
+	
+</script>
+</head>
+
+<body>
+<p><img src="1.jpg" name="pic1" width="146" height="146" alt=""/>
+ <img src="1.jpg" name="pic2" width="146" height="146" alt=""/>
+<img src="1.jpg" name="pic3" width="146" height="146" alt=""/>
+	<img src="1.jpg" name="pic4" width="146" height="146" alt=""/>
+</p>
+<form id="form1" name="form1" method="post">
+  <label for="textfield">點數:</label>
+  <input type="text" name="total" id="textfield">
+  <input type="button" name="button" id="button" value="擲出" onClick="play()">
+</form>
+<p>&nbsp;</p>
+</body>
+</html>
