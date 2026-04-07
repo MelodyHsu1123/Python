@@ -1,0 +1,46 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>四子連珠遊戲</title>
+<script language="javascript">
+    function play(){
+        // Generate 4 random numbers
+        let no1 = Math.floor(Math.random()*6+1);
+        let no2 = Math.floor(Math.random()*6+1);
+        let no3 = Math.floor(Math.random()*6+1);
+        let no4 = Math.floor(Math.random()*6+1);
+        
+        // Update all 4 images
+        document.pic1.src = "gamepic/" + no1 + ".jpg";
+        document.pic2.src = "gamepic/" + no2 + ".jpg";
+        document.pic3.src = "gamepic/" + no3 + ".jpg";
+        document.pic4.src = "gamepic/" + no4 + ".jpg";
+        
+        // Show the total of all FOUR dice
+        document.getElementById("textfield").value = no1 + no2 + no3 + no4;
+
+        // Win condition (Check if all 4 are the same)
+        if(no1 === no2 && no2 === no3 && no3 === no4){
+            alert("大滿貫！全部相同！");
+        } else if(no1 === no2 || no3 === no4) {
+            alert("中了一對！");
+        }
+    }
+</script>
+</head>
+
+<body>
+<p>
+  <img src="gamepic/1.jpg" width="146" height="146" name="pic1" alt=""/>
+  <img src="gamepic/1.jpg" width="146" height="146" name="pic2" alt=""/>
+  <img src="gamepic/1.jpg" width="146" height="146" name="pic3" alt=""/>
+  <img src="gamepic/1.jpg" width="146" height="146" name="pic4" alt=""/>
+</p>
+
+<p>
+  <label for="textfield"><strong>總點數</strong>:</label>
+  <input type="text" name="textfield" id="textfield" readonly>
+  <input type="button" name="button" id="button" value="擲出四子" onClick="play()">
+</p>
+</body>
+</html>
