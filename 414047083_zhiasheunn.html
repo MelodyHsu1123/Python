@@ -1,0 +1,36 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>無標題文件</title>
+<script language="javascript">
+    function play(){
+        let no1 = Math.floor(Math.random()*6+1);
+        let no2 = Math.floor(Math.random()*6+1);
+        
+        // Update images - Added "gamepic/" to match your HTML
+        document.pic1.src = "gamepic/" + no1 + ".jpg";
+        document.pic2.src = "gamepic/" + no2 + ".jpg";
+        
+        // Show the total
+        document.getElementById("textfield").value = no1 + no2;
+
+        // Win condition
+        if(no1 === no2){
+            alert("中了！");
+        }
+    } // <--- This bracket was missing!
+</script>
+</head>
+
+<body>
+<p>
+  <img src="gamepic/1.jpg" width="146" height="146" name="pic1" alt=""/>
+  <img src="gamepic/1.jpg" width="146" height="146" name="pic2" alt=""/>
+</p>
+<p>
+  <label for="textfield"><strong>點數</strong>:</label>
+  <input type="text" name="textfield" id="textfield">
+  <input type="button" name="button" id="button" value="擲出" onClick="play()">
+</p>
+</body>
+</html>
