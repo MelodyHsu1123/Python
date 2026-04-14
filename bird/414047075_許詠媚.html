@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>無標題文件</title>
+<script language="javascript">	
+	function play(){
+		let no1 = Math.floor(Math.random()*4);
+		let no2 = Math.floor(Math.random()*4);
+		let no3 = Math.floor(Math.random()*4);
+		document.pic1.src = no1 +".gif";
+		document.pic2.src = no2 +".gif";
+		document.pic3.src = no3 +".gif";
+		if(no1 === no2 && no2 === no3){
+			alert("中獎!");
+		}
+	}
+	
+</script>
+</head>
+<body>
+<p>
+  <img src="0.gif" name="pic1" width="100" height="100" alt=""/>
+  <img src="0.gif" name="pic2" width="100" height="100" alt=""/>
+  <img src="0.gif" name="pic3" width="100" height="100" alt=""/>
+</p>
+<form id="form1" name="form1" method="post">
+  <input type="button" name="button" id="button" value="開始抽獎" onClick="play()">
+</form>
+<p>&nbsp; </p>
+</body>
+</html>
